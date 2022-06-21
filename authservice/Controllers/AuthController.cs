@@ -20,6 +20,7 @@ using System.IdentityModel.Tokens.Jwt;
 using Services;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using System.Security.Claims;
 
 namespace authservice.Controllers
 {
@@ -36,7 +37,7 @@ namespace authservice.Controllers
         [Authorize]
         public async Task<string> getLogin()
         {
-
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
             return "";
         }
 
